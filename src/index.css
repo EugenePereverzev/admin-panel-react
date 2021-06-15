@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --main-background: white;
+  --main-color: black;
+  --secondary-background: #EBF0F5;
+  --control-color: #459DF5;
+  --control-back-color: white;
+  --control-lock-color: #BAD8F5;
+  --error-color: red;
+
+  --large-font: normal bold 1.5rem/2rem Ubuntu;
+  --normal-font: normal 1rem/1.5rem Ubuntu;
+  --x-small-font: x-small Ubuntu;
+  --control-font: normal 400 0.85rem/1rem Ubuntu;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  background-color: var(--main-background);
+  box-sizing: border-box;
+  height: 100%;
+  font-family: "Ubuntu", sans-serif; 
+  letter-spacing: -0.2px;
+}
+
+body, #root {
+  height: 100%;
+  width: 100%;
 }

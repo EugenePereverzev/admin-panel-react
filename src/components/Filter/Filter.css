@@ -1,0 +1,20 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0.5rem;
+    background-color: var(--main-background);;
+}
+
+.filter-main {
+    display: flex;
+    margin: 0.5rem 0;
+}
+
+.filter-detail {
+    display: flex;
+    align-items: flex-start;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-background);
+    border-radius: 0.5rem;
+}

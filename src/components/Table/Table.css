@@ -1,0 +1,23 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font: var(--control-font);
+    letter-spacing: 0;
+}
+
+.table-header {
+    background: var(--control-color);
+    color: var(--control-back-color);
+}
+
+.table-body {
+    flex: 1;
+    background: var(--main-background);
+    color: var(--main-color);
+}
+
+.table-footer {
+    background: var(--secondary-background);
+    color: var(--main-color);
+}
