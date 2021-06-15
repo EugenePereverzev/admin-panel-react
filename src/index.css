@@ -2,6 +2,7 @@
   --main-background: white;
   --main-color: black;
   --secondary-background: #EBF0F5;
+  --secondary-color: #a6a9ad;
   --control-color: #459DF5;
   --control-back-color: white;
   --control-lock-color: #BAD8F5;
@@ -24,4 +25,5 @@ html {
 body, #root {
   height: 100%;
   width: 100%;
+  margin: 0;
 }

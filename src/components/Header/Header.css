@@ -1,5 +1,5 @@
 .header {
-    margin: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem 1rem;
     display: flex;
     padding: 0px;
     background-color: var(--main-background);
