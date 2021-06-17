@@ -1,0 +1,41 @@
+.input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.25rem;
+    background: var(--main-background);
+    border: solid 1px var(--control-color);
+}
+
+.input-label {
+    margin: 0 0.5rem;
+}
+
+.input-box {
+    flex: 1;
+    border-radius: 0.25rem;  
+    position: relative;
+}
+
+.input-field {
+    border-radius: 0.25rem;
+    border-width: 0px;
+    font: var(--normal-font);
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.input-hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 0.25rem;
+    display: flex;
+    align-items: center;
+    color: var(--control-color);
+    font: var(--control-font);
+}

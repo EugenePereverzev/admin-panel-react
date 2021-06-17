@@ -5,7 +5,6 @@
     padding: 0.5rem;
     border-radius: 0.25rem;
     font: var(--control-font);
-    background-color: var(--control-back-color);
     color: var(--control-color);    
     cursor: pointer;
 }

@@ -10,7 +10,7 @@
     margin: 0 0 0.5rem;
 }
 
-.filter-main .button {
+.filter-main>*:not(:last-child) {
     margin: 0 1rem 0 0;
 }
 
@@ -18,16 +18,4 @@
     flex: 1;
     display: flex;
     justify-content: flex-end;
-}
-
-.filter-main-lefted .button {
-    margin: 0 0 0 1rem;
-}
-
-.filter-detail {
-    display: flex;
-    align-items: flex-start;
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-background);
-    border-radius: 0.5rem;
 }

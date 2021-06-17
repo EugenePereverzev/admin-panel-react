@@ -1,0 +1,16 @@
+.range {
+    display: flex;
+    flex-direction: column;
+}
+
+.range-label {
+    font: var(--control-font);
+}
+
+.range-values {
+    display: flex;
+}
+
+.range-values>*:not(:last-child) {
+    margin-right: 0.25rem;
+}

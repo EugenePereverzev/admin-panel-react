@@ -20,7 +20,7 @@ class ThemeMenu extends Component {
                 <div>Выберите тему</div>
                 <Button icon={ICON_SUN} label="Светлая" />
                 <Button icon={ICON_MOON} label="Тёмная" reversed/>
-            </div>
+            </div>;
 
         return (
             <div className="theme-menu">
