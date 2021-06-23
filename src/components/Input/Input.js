@@ -24,11 +24,11 @@ class Input extends Component {
         const button = (this.state.isLock && <Button icon={ICON_LOCKED}/>) ||
                     (!!this.state.value && <Button icon={ICON_X_LARGE} onClick={this.handlerClearValue} />);
         const label = this.state.isTextOn && <div className="input-label">{this.props.label}</div>;
-        //const classString = "input" + (this.state.isLock?" locked":"");
+        const classString = "input" + (this.state.isLock?" locked":"");
         const style = (!!this.props.width?{style: {width: this.props.width}}:{});
 
         return (
-            <div className="input" {...style}>
+            <div className={classString} {...style}>
                 {this.props.children}
                 {label}
                 <input type="text" className="input-field" value={this.state.value} onChange={this.handlerOnChange} placeholder={this.props.placeHolder}/>

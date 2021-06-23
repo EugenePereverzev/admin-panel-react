@@ -12,21 +12,4 @@
 .input-label {
     margin: 0 0.25rem;
     flex-shrink: 0;
-}
-
-.input-field {
-    flex-grow: 1;
-    font: var(--normal-font);
-    border: none;
-    min-width: 0;
-}
-
-.input-field:focus {
-    outline: none;
-}
-
-.input-field::placeholder {
-    color: var(--control-color);
-}
-
-
+} 
