@@ -21,7 +21,13 @@ class Filter extends Component {
     render () {
         const filterDetail = this.state.isOpen && (
             <FilterDetail>
-                <Range label="Дата оформления" startLabel="c" endLabel="по" placeHolder="dd.mm.yyyy" startValue="20.01.2021"/>
+                <Range 
+                    label="Дата оформления" 
+                    startLabel="c" 
+                    endLabel="по" 
+                    placeHolder="dd.mm.yyyy" 
+                    startValue="20.01.2021"
+                    pattern="[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4}"/>
                 <Button label="Применить"/>
             </FilterDetail>
         );

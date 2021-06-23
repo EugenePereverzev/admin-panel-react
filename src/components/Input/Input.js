@@ -31,7 +31,13 @@ class Input extends Component {
             <div className={classString} {...style}>
                 {this.props.children}
                 {label}
-                <input type="text" className="input-field" value={this.state.value} onChange={this.handlerOnChange} placeholder={this.props.placeHolder}/>
+                <input 
+                    type="text" 
+                    className="input-field" 
+                    value={this.state.value} 
+                    onChange={this.handlerOnChange} 
+                    placeholder={this.props.placeHolder} 
+                    pattern={this.props.pattern}/>
                 {button}
             </div>
         )
