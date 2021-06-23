@@ -12,27 +12,26 @@ class Input extends Component {
         isLock: !!this.props.locked,
     }
 
-    clearValue = () => {
-        this.setState = ({ ...this.state,
-            value: "",
-        })
+    handlerClearValue = () => {
+        this.setState ({ value: "" });
     }
 
+    handlerOnChange = (e) => {
+        this.setState({ value: e.target.value });
+    }
+    
     render () {
         const button = (this.state.isLock && <Button icon={ICON_LOCKED}/>) ||
-                    (!!this.state.value && <Button icon={ICON_X_LARGE} onClick={this.clearValue} />);
+                    (!!this.state.value && <Button icon={ICON_X_LARGE} onClick={this.handlerClearValue} />);
         const label = this.state.isTextOn && <div className="input-label">{this.props.label}</div>;
-        const hint = !this.state.value && !!this.props.hint && <div className="input-hint">{this.props.hint}</div>;
-        const classString = "input" + (this.state.isLock?" locked":"");
+        //const classString = "input" + (this.state.isLock?" locked":"");
+        const style = (!!this.props.width?{style: {width: this.props.width}}:{});
 
         return (
-            <div className={classString}>
+            <div className="input" {...style}>
                 {this.props.children}
                 {label}
-                <div className="input-box">
-                    <input type="text" className="input-field" value={this.state.value}/>
-                    {hint}
-                </div>
+                <input type="text" className="input-field" value={this.state.value} onChange={this.handlerOnChange} placeholder={this.props.placeHolder}/>
                 {button}
             </div>
         )

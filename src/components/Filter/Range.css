@@ -5,12 +5,13 @@
 
 .range-label {
     font: var(--control-font);
+    margin-bottom: 0.5rem;
 }
 
 .range-values {
     display: flex;
 }
 
-.range-values>*:not(:last-child) {
+.range-values>*{
     margin-right: 0.25rem;
 }

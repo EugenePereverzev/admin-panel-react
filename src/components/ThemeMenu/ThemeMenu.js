@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ThemeMenu.css';
 import Button from '../Button/Button';
 import { ICON_MOON, ICON_SUN } from '../Icons/Icons';
+import SubList from '../SubList/SubList';
 
 class ThemeMenu extends Component {
     state = {
@@ -15,12 +16,12 @@ class ThemeMenu extends Component {
     }
 
     render () {
+        const style = {style: {width: "10rem", right: 0, top: "2rem", }};
         const subMenu = this.state.isOpen && 
-            <div className="sub-menu">
-                <div>Выберите тему</div>
+            <SubList label="Выберите тему" onClick={this.handleOnClick} {...style}>
                 <Button icon={ICON_SUN} label="Светлая" />
                 <Button icon={ICON_MOON} label="Тёмная" reversed/>
-            </div>;
+            </SubList>
 
         return (
             <div className="theme-menu">

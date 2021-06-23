@@ -9,8 +9,8 @@ class Range extends Component {
             <div className="range">
                 <div className="range-label">{this.props.label}</div>
                 <div className="range-values">
-                    <Input label={this.props.startLabel} hint={this.props.startHint || this.props.hint} value={this.props.startValue} />
-                    <Input label={this.props.endLabel} hint={this.props.endHint || this.props.hint} value={this.props.endValue} />
+                    <Input label={this.props.startLabel} placeHolder={this.props.startPlaceHolder || this.props.placeHolder} value={this.props.startValue} width="10rem"/>
+                    <Input label={this.props.endLabel} placeHolder={this.props.endPlaceHolder || this.props.placeHolder} value={this.props.endValue} width="10rem"/>
                 </div>
             </div>
         );

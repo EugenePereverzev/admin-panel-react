@@ -21,7 +21,7 @@ class Filter extends Component {
     render () {
         const filterDetail = this.state.isOpen && (
             <FilterDetail>
-                <Range label="Дата оформления" startLabel="c" endLabel="по" hint="dd.mm.yyyy" startValue="20.01.2021"/>
+                <Range label="Дата оформления" startLabel="c" endLabel="по" placeHolder="dd.mm.yyyy" startValue="20.01.2021"/>
                 <Button label="Применить"/>
             </FilterDetail>
         );
@@ -29,7 +29,7 @@ class Filter extends Component {
         return (
             <div className="filter">
                 <div className="filter-main">
-                    <Input hint="Номер заказа или ФИО">
+                    <Input placeHolder="Номер заказа или ФИО" width="15rem">
                         <Button icon={ICON_SEARCH}/>
                     </Input>
                     <Button icon={ICON_FILTER} label="Фильтр" onClick={this.handleOnClick} reversed={this.state.isOpen}/>   
