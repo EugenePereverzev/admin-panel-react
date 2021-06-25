@@ -1,13 +1,15 @@
 import './Table.css';
+import TableHeader from './TableHeader';
 
 import Button from '../Button/Button';
 import { ICON_ABORT, ICON_BIN, ICON_CHECKMARK, ICON_DOT, ICON_FILTER, ICON_LOCKED, ICON_MOON, ICON_PENCIL, ICON_REFRESH, ICON_SEARCH, ICON_SUN, ICON_V_ARROW, ICON_X_LARGE, ICON_X_MEDIUN } from '../Icons/Icons';
+import { defColumns } from './Columns';
 
 
 export default function Table () {
     return (
         <div className="table">
-            <div className="table-header">Заголовок таблицы</div>
+            <TableHeader columns={defColumns} />
             <div className="table-body">Teлo таблицы</div>
             <div className="table-footer">
                 <Button icon={ICON_SUN}/>
