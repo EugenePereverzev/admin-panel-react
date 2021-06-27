@@ -1,6 +1,6 @@
 export const defColumns = [
     {   id: 1,
-        name: "number",
+        name: "id",
         label: "#",
         flex: "2",
     },

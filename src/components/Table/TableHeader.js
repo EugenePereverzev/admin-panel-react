@@ -5,7 +5,7 @@ import Cell from './Cell';
 export default function TableHeader (props) {
     const headerCells = props.columns.map(column => {
         const style = (!!column.flex?{style: {flex: column.flex}}:{});
-        return <Cell key={column.key} label={column.label} style={style} />
+        return <Cell key={column.id} label={column.label} style={style} />
         });  
         
     return (
