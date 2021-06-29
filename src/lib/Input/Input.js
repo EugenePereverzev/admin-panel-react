@@ -18,8 +18,9 @@ class Input extends Component {
 
     handlerOnChange = (e) => {
         this.setState({ value: e.target.value });
+        console.log ('onChange', e.target.value, e.target);
     }
-    
+  
     render () {
         const button = (this.state.isLock && <Button icon={ICON_LOCKED}/>) ||
                     (!!this.state.value && <Button icon={ICON_X_LARGE} onClick={this.handlerClearValue} />);

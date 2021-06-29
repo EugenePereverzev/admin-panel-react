@@ -22,13 +22,13 @@
     width: 1rem;
 }
 
-.button.disabled {
+.button__disabled {
     background-color: var(--secondary-background);
     color: var(--secondary-color);    
     cursor: not-allowed;
 }
 
-.button.reversed {
+.button__reversed {
     background-color: var(--control-color);
     color: var(--control-back-color);    
 }
