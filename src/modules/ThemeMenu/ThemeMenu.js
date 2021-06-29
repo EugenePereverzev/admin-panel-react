@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ThemeMenu.css';
-import Button from '../Button/Button';
-import { ICON_MOON, ICON_SUN } from '../Icons/Icons';
-import SubList from '../SubList/SubList';
+import Button from  '../../lib/Button/Button';
+import { ICON_MOON, ICON_SUN } from '../../lib/Icons/Icons';
+import SubList from '../../lib/SubList/SubList';
 
 class ThemeMenu extends Component {
     state = {
@@ -16,9 +16,8 @@ class ThemeMenu extends Component {
     }
 
     render () {
-        const style = {style: {width: "10rem", right: 0, top: "2rem", }};
         const subMenu = this.state.isOpen && 
-            <SubList label="Выберите тему" onClick={this.handleOnClick} {...style}>
+            <SubList label="Выберите тему" onClick={this.handleOnClick} {...{style: {width: "10rem", right: 0, top: "2rem", }}}>
                 <Button icon={ICON_SUN} label="Светлая" />
                 <Button icon={ICON_MOON} label="Тёмная" reversed/>
             </SubList>

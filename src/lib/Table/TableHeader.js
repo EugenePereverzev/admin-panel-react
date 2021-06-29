@@ -1,6 +1,6 @@
 import './TableHeader.css';
 import Checkbox from '../Checkbox/Checkbox';
-import Cell from './Cell';
+import Cell from '../Cell/Cell';
 
 export default function TableHeader (props) {
     const headerCells = props.columns.map(column => {

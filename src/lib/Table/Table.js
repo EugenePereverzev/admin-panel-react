@@ -19,7 +19,7 @@ const orderRows = () => {
         const personData = getPerson (orderData.bayer);
         const values = {
                 id: orderData.id,
-                date: orderData.makeDate.toString(),
+                date: orderData.makeDate.toLocaleDateString("ru-RU", {year: 'numeric', month: '2-digit', day: '2-digit', hour12: false, hour:'2-digit', minute:'2-digit', second:'2-digit'}),
                 status: orderData.status,
                 bayer: personData.name,
                 count: orderData.goods.length,

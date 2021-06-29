@@ -1,6 +1,6 @@
 import './TableRow.css';
 import Checkbox from '../Checkbox/Checkbox';
-import Cell from './Cell';
+import Cell from '../Cell/Cell';
 
 export default function TableRow (props) {
     const valueCells = props.columns.map(column => {

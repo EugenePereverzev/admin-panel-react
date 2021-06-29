@@ -1,9 +1,11 @@
+//import { Provider } from 'react-redux';
 import './App.css';
 import Header from '../Header/Header';
-import Filter from '../Filter/Filter';
-import Table from '../Table/Table';
+import Filter from '../../lib/Filter/Filter';
+import Table from '../../lib/Table/Table';
 import ThemeMenu from '../ThemeMenu/ThemeMenu';
-import { IconsLib } from '../Icons/Icons';
+import { IconsLib } from '../../lib/Icons/Icons';
+
 
 function App() {
   return (
