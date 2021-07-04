@@ -1,21 +1,21 @@
-import { goodIndex, updateGood } from '../data/Goods';
+import { personIndex, updatePerson } from '../../data/persons';
 
 const initialState = () => {
-    return { list: {...goodIndex} };
+    return { list: {...personIndex} };
 }
 
-export const goodList = (state = initialState(), action) => {
+export const personList = (state = initialState(), action) => {
     switch (action.type) {
-        case 'GOODLIST_ADD':
-        case 'GOODLIST_UPDATE':
+        case 'PERSONLIST_ADD':
+        case 'PERSONLIST_UPDATE':
             return { 
                 list: {
                     ...state.list,
-                    [action.payload.id]: updateGood (action.payload),
+                    [action.payload.id]: updatePerson (action.payload),
                 }
             };
 
-        case 'GOODLIST_DELETE':
+        case 'PERSONLIST_DELETE':
             const {[action.payload.id]: deleted, ...newList} = state.list;
             return { list: newList };
         

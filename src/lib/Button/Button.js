@@ -1,21 +1,18 @@
 import React from 'react';
-import './Button.css';
+import style from './Button.module.css';
+import cc from 'classcat';
 
 function Button (props) {
-    const icon = !!props.icon && <svg className="button-icon"><use href={props.icon}/></svg>;
-    const label = !!props.label && <div className="button-label">{props.label}</div>;
-    const classString = (
-            "button" + (
-                !!props.disabled ? " button__disabled" : (
-                    !!props.reversed ? " button__reversed" : ""
-                )
-            )
-    );
+    const classString = cc ({
+        [style._] : true,
+        [style.disabled] : props.disabled,
+        [style.reversed] : !props.disabled && props.reversed,
+    });
 
     return (
-        <div className={classString} onClick={props.onClick}>
-            {icon}
-            {label}
+        <div className={classString} onClick={props.onClick} {...props.style}>
+            {!!props.icon && <svg className={style.icon}><use href={props.icon}/></svg>}
+            {!!props.label && <div className={style.label}>{props.label}</div>}
         </div>
     );
 }

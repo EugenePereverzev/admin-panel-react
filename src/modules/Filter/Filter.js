@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import './Filter.css';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
+import Button from '../../lib/Button/Button';
+import Input from '../../lib/Input/Input';
 import FilterDetail from './FilterDetail';
-import { ICON_FILTER, ICON_REFRESH, ICON_SEARCH } from '../Icons/Icons';
+import { ICON_FILTER, ICON_REFRESH, ICON_SEARCH } from '../../lib/Icons/Icons';
 import Range from './Range';
 
 class Filter extends Component {
@@ -16,6 +16,10 @@ class Filter extends Component {
         this.setState ({
             isOpen: !this.state.isOpen
         })
+    }
+
+    handlerOnSubmit = (value) => {
+        console.log ('Надо фильтрануть по значению: ' + value);
     }
 
     render () {
@@ -35,7 +39,7 @@ class Filter extends Component {
         return (
             <div className="filter">
                 <div className="filter-main">
-                    <Input placeHolder="Номер заказа или ФИО" width="15rem">
+                    <Input placeHolder="Номер заказа или ФИО" width="15rem" onSubmit={this.handlerOnSubmit}>
                         <Button icon={ICON_SEARCH}/>
                     </Input>
                     <Button icon={ICON_FILTER} label="Фильтр" onClick={this.handleOnClick} reversed={this.state.isOpen}/>   

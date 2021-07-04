@@ -1,31 +1,20 @@
-import { Component } from "react";
 import { ICON_CHECKMARK } from "../Icons/Icons";
-import './Checkbox.css';
+import style from './Checkbox.module.css';
+import cc from 'classcat';
 
-class Checkbox extends Component {
-    state = {
-        value: false,
-        isDisable: !!this.props.disabled,
-    }
+function Checkbox (props) {
+    const classString = cc ({
+        [style._] : true,
+        [style.checked] : props.checked,
+        [style.disabled] : props.disabled,
+    });
 
-    handleOnClick = () => {
-        this.setState ({
-            value: !this.state.value
-        })
-        this.props.onClick && this.props.onClick()
-    }
-
-    render () {
-        const icon = <svg className="checkbox-icon"><use href={this.state.value?ICON_CHECKMARK:""}/></svg>;
-        const label = !!this.props.label && <div className="checkbox-label">{this.props.label}</div>;
-
-        return (
-            <div className="checkbox" onClick={this.handleOnClick}>
-                {icon}
-                {label}
-            </div>
-        )
-    }
+    return (
+        <div className={classString} onClick={props.onClick}>
+            <svg className={style.icon}><use href={props.checked?ICON_CHECKMARK:""}/></svg>
+            {props.label && <div className={style.label}>{props.label}</div>}
+        </div>
+    )
 }
 
 export default Checkbox;

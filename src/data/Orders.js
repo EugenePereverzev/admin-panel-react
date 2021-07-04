@@ -1,3 +1,6 @@
+import { getGood } from './goods';
+import { getPerson } from './persons';
+
 export const ORDER_STATUS_NEW = "Новый";
 export const ORDER_STATUS_CALC = "Рассчёт";
 export const ORDER_STATUS_DONE = "Выполнен";
@@ -304,8 +307,8 @@ export const orders = [
 ]; 
 
 export const orderIndex = orders.reduce (
-    (list, order, index) => {
-        list[order.id] = index;
+    (list, { id }, index) => {
+        list[id] = index;
         return list;
     }
     , {}
@@ -338,3 +341,22 @@ export const updateOrder = (order) => {
     }
     return orderIndex[order.id];
 };
+
+export const getFullOrderData = (orderId) => {
+    const {id, makeDate, status, bayer: bayerId, goods} = getOrder (orderId);
+    const {name: bayer} = getPerson (bayerId);
+    return {
+        id,
+        date: makeDate,
+        status,
+        bayer,
+        count: goods.length,
+        summa: goods.reduce (
+                            (sum, {id: goodId, quantity, discount}) => {
+                                const { price } = getGood (goodId);
+                                return sum =+ (quantity * price * (1 - discount))
+                            }
+                            , 0
+                            )
+    };
+}

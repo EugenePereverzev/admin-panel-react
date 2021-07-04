@@ -1,9 +1,9 @@
 import React from 'react';
-import './SubList.css';
+import style from './SubList.module.css';
 
 function SubList (props) {
         return (
-            <div className="sub-list" onClick={props.onClick} {...{style: props.style}}> 
+            <div className={style._} onClick={props.onClick} {...{style: props.style}}> 
                 <div>{props.label}</div>
                 {props.children}
             </div>

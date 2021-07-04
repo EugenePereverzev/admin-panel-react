@@ -1,4 +1,4 @@
-.table {
+._ {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -7,18 +7,13 @@
     margin: 0 0.5rem;
 }
 
-.table-header {
-    background: var(--control-color);
-    color: var(--control-back-color);
-}
-
-.table-body {
+.body {
     flex: 1;
     background: var(--main-background);
     color: var(--main-color);
 }
 
-.table-footer {
+.footer {
     background: var(--secondary-background);
     color: var(--main-color);
     display: flex;

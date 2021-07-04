@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Input from '../Input/Input';
+import Input from '../../lib/Input/Input';
 import './Range.css';
 
 class Range extends Component {

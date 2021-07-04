@@ -1,7 +1,7 @@
-import './Cell.css';
+import style from './Cell.module.css';
 
 export default function Cell (props) {
     return (
-        <div className="cell" onClick={props.onClick} {...props.style}>{props.label}</div>
+        <div className={style._} onClick={props.onClick} {...props.style}>{props.label}</div>
     );
 }
