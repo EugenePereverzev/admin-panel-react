@@ -15,6 +15,7 @@ function Button (props) {
             {!!props.label && <div className={style.label}>{props.label}</div>}
         </div>
     );
+   
 }
 
 export default Button;

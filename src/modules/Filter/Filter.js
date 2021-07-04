@@ -3,7 +3,7 @@ import './Filter.css';
 import Button from '../../lib/Button/Button';
 import Input from '../../lib/Input/Input';
 import FilterDetail from './FilterDetail';
-import { ICON_FILTER, ICON_REFRESH, ICON_SEARCH } from '../../lib/Icons/Icons';
+import { ICON_FILTER, ICON_REFRESH, ICON_SEARCH, ICON_ABORT, ICON_CHECKMARK } from '../../lib/Icons/Icons';
 import Range from './Range';
 
 class Filter extends Component {
@@ -32,7 +32,7 @@ class Filter extends Component {
                     placeHolder="dd.mm.yyyy" 
                     startValue="20.01.2021"
                     pattern="([0-9]|[0-2][0-9]|3[0-1])\.([0-9]|0[0-9]|1[0-2])\.([0-9]{2}|[0-9]{4})"/>
-                <Button label="Применить"/>
+                <Button icon={ICON_CHECKMARK} label="Применить"/>
             </FilterDetail>
         );
 
@@ -43,7 +43,7 @@ class Filter extends Component {
                         <Button icon={ICON_SEARCH}/>
                     </Input>
                     <Button icon={ICON_FILTER} label="Фильтр" onClick={this.handleOnClick} reversed={this.state.isOpen}/>   
-                    <Button label="Сбросить фильтр" disabled /> 
+                    <Button icon={ICON_ABORT} label="Сбросить фильтр" disabled /> 
                     <div className="filter-main-lefted">
                         <Button icon={ICON_REFRESH} label="Обновить"/> 
                     </div>

@@ -9,11 +9,9 @@ export default function TableHeader (props) {
             <Checkbox onClick={props.onAllCheckClick}/>
             {props.columns.map (
                 ({ id, label, flex, name}) => (
-                    <div key={id} {...{style: {flex, marginRight: "0.5rem"}}}>
-                        <Button label={label} onClick={props.onHeaderClick(name)} 
-                                icon={(name === props.sort ? ICON_V_ARROW : "")} 
-                                style={{style: {color: "var(--control-back-color)"}}}/>
-                    </div>        
+                    <Button key={id} label={label} onClick={props.onHeaderClick(name)} 
+                            icon={(name === props.sort ? ICON_V_ARROW : "#")} 
+                            style={{style: {flexDirection:"row-reverse", justifyContent: "flex-end", flex, marginRight: "0.5rem", color: "var(--control-back-color)"}}}/>
                 )
             )}
         </div>
