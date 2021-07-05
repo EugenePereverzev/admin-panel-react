@@ -1,30 +1,40 @@
-import { Component } from 'react';
 import Input from '../../lib/Input/Input';
-import './Range.css';
+import style from './Range.module.css';
 
-class Range extends Component {
+function Range (props) {
 
-    render () {
-        return (
-            <div className="range">
-                <div className="range-label">{this.props.label}</div>
-                <div className="range-values">
-                    <Input 
-                        label={this.props.startLabel} 
-                        placeHolder={this.props.startPlaceHolder || this.props.placeHolder} 
-                        pattern={this.props.startPattern || this.props.pattern} 
-                        value={this.props.startValue} 
-                        width="10rem"/>
-                    <Input 
-                        label={this.props.endLabel} 
-                        placeHolder={this.props.endPlaceHolder || this.props.placeHolder} 
-                        pattern={this.props.endPattern || this.props.pattern} 
-                        value={this.props.endValue} 
-                        width="10rem"/>
-                </div>
+    const values = props.values ?? {};
+    const handlerValueSubmit = (value) => props.onSubmit && props.onSubmit ({ [props.field]: {...values, ...value} });
+    const handlerValueClear = (field) => {
+        const { [field]: cleared, ...newValues } = values;
+        props.onSubmit && props.onSubmit ({ [props.field]: newValues });
+    }
+
+    return (
+        <div className={style._}>
+            <div className={style.label}>{props.label}</div>
+            <div className={style.values}>
+                <Input 
+                    field="from"
+                    value={values["from"] ?? props.startValue}
+                    label={props.startLabel} 
+                    placeHolder={props.startPlaceHolder ?? props.placeHolder} 
+                    pattern={props.startPattern ?? props.pattern} 
+                    onSubmit={handlerValueSubmit}
+                    onClear={handlerValueClear}
+                    style={{style: {width: "10rem"}}}/>
+                <Input 
+                    field="to"
+                    value={values["to"] ?? props.endValue}
+                    label={props.endLabel} 
+                    placeHolder={props.endPlaceHolder ?? props.placeHolder} 
+                    pattern={props.endPattern ?? props.pattern} 
+                    onSubmit={handlerValueSubmit} 
+                    onClear={handlerValueClear}
+                    style={{style: {width: "10rem"}}}/>
             </div>
-        );
-    };
+        </div>
+    );
 };
 
 export default Range;

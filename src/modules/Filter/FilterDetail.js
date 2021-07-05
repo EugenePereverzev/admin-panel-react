@@ -1,8 +1,8 @@
-import './FilterDetail.css';
+import style from './FilterDetail.module.css';
 
 export default function FilterDetail (props) {
     return (
-        <div className="filter-detail">
+        <div className={style._}>
             {props.children}
         </div>
     )

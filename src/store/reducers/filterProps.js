@@ -8,11 +8,14 @@ const initialState = () => {
     return {
         isActive: false,
         isExpand: false,
+        isUpdate: false,
     };
 };
 
-export const filterProps = (state = initialState(), action) => {
-    switch (action.type) {
+export const filterProps = (state = initialState(), { type, payload }) => {
+    console.log (`state:`, state);
+    console.log (`type: ${type}\tvalue:`, payload);
+    switch (type) {
         case ACT_FILTER_TOGGLE:
             return {
                 ...state,
@@ -23,6 +26,7 @@ export const filterProps = (state = initialState(), action) => {
             return {
                 ...state,
                 isActive: true,
+                isUpdate: false,
             };
 
         case ACT_FILTER_CLEAR:
@@ -32,12 +36,16 @@ export const filterProps = (state = initialState(), action) => {
         case ACT_FILTER_SET_VALUE:
             return {
                 ...state,
-                [action.payout.field]: action.payout.value,
+                ...payload,
+                isUpdate: true,
             };  
 
         case ACT_FILTER_CLEAR_VALUE:
-            const { [action.payout.field]: cleared, ...newState} = state;
-            return newState;         
+            const { [payload.field]: cleared, ...newState} = state;
+            return {
+                ...newState,
+                isUpdate: true,
+            };         
 
         default:
             return state;

@@ -7,8 +7,9 @@ import { ICON_ABORT, ICON_BIN, ICON_CHECKMARK, ICON_DOT, ICON_FILTER, ICON_LOCKE
 import { defColumns } from './Columns';
 import { useDispatch, useSelector } from 'react-redux';
 import { getVisibleOrders, getSelectCount, getSort } from '../../store/selectors/orders';
-import { getFullOrderData } from '../../data/orders';
 import { actionToggleSelection, actionSetSort } from '../../store/actions/orders';
+import { getFullOrderData } from '../../data/orders';
+
 
 
 function Table () {

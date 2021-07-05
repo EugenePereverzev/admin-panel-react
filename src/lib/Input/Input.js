@@ -7,11 +7,12 @@ import cc from 'classcat';
 class Input extends Component {
 
     state = { 
-        value: this.props.value || '',
+        value: this.props.value ?? "",
     }
 
     handlerClearValue = () => {
-        this.setState ({ value: '' });
+        this.setState ({ value: "" });
+        this.props.onClear && this.props.onClear (this.props.field);
     }
 
     handlerOnChange = (e) => {
@@ -20,8 +21,14 @@ class Input extends Component {
 
     handlerOnKeyUp = (e) => {
         if (e.keyCode === 13) {
-            this.props.onSubmit && this.props.onSubmit(this.state.value);
+            this.props.onSubmit && this.props.onSubmit({ [this.props.field]: this.state.value });
             e.preventDefault();
+        }
+    }
+
+    handlerOnBlur = () => {
+        if ((this.props.value ?? "") !== (this.state.value ?? "")) {
+            this.props.onSubmit && this.props.onSubmit({ [this.props.field]: this.state.value });
         }
     }
   
@@ -32,14 +39,8 @@ class Input extends Component {
             [style.disabled]: this.props.disabled,
         });
 
-        const inlineStyle = (
-                !!this.props.width ?
-                {style: {width: this.props.width}} :
-                {}
-        );
-
         return (
-            <div className={classString} {...inlineStyle}>
+            <div className={classString} {...this.props.style}>
                 {this.props.children}
                 {!!this.props.label && <div className={style.label}>{this.props.label}</div>}
                 <input 
@@ -48,6 +49,7 @@ class Input extends Component {
                     value={this.state.value} 
                     onChange={this.handlerOnChange} 
                     onKeyUp={this.handlerOnKeyUp}
+                    onBlur={this.handlerOnBlur}
                     placeholder={this.props.placeHolder} 
                     pattern={this.props.pattern}/>
                 {(this.props.locked && <Button icon={ICON_LOCKED}/>) ||
