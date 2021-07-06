@@ -1,4 +1,4 @@
-.header {
+._ {
     margin: 0.5rem 0.5rem 1rem;
     display: flex;
     padding: 0px;
@@ -7,6 +7,6 @@
     font: var(--large-font)
 }
 
-.header-title {
+.title {
     flex: 1;        
 } 

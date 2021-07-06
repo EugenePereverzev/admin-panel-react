@@ -28,13 +28,13 @@ function Filter () {
                 placeHolder="dd.mm.yyyy" 
                 pattern="(((0?[1-9]|[1,2][0-9])\.(0?[1-9]|1[0-2]))|(30\.(0?[1,3-9]|1[0-2]))|(31\.(0?[1,3,5,7,8]|1[0,2])))\.([0-9]{2}|[0-9]{4})"
                 onSubmit={handleSetValue}
-                />
+            />
             <Button 
                 label="Применить" 
                 onClick={() => dispatch (actionFilterApply ())}
                 disabled={!filter.isUpdate} 
-                style={{style: {height: "2rem", border: "solid 1px currentColor"}}}
-                />
+                style={{height: "2rem", border: "solid 1px currentColor"}}
+            />
         </FilterDetail>
     );
 
@@ -46,12 +46,21 @@ function Filter () {
                     value={filter["idBayer"]}
                     placeHolder="Номер заказа или ФИО" 
                     onSubmit={handleSetValue} 
-                    style={{style: {width: "15rem"}}}
-                    >
+                    style={{width: "15rem"}}
+                >
                     <Button icon={ICON_SEARCH}/>
                 </Input>
-                <Button icon={ICON_FILTER} label="Фильтр" onClick={() => dispatch (actionFilterToggle ())} reversed={filterExpanded}/>   
-                <Button label="Сбросить фильтр" onClick={() => dispatch (actionFilterClear ())} disabled={!filterActivated} /> 
+                <Button 
+                    icon={ICON_FILTER} 
+                    label="Фильтр" 
+                    onClick={() => dispatch (actionFilterToggle ())} 
+                    reversed={filterExpanded}
+                />   
+                <Button 
+                    label="Сбросить фильтр" 
+                    onClick={() => dispatch (actionFilterClear ())} 
+                    disabled={!filterActivated} 
+                /> 
                 <div className={style.main_lefted}>
                     <Button icon={ICON_REFRESH} label="Обновить"/> 
                 </div>

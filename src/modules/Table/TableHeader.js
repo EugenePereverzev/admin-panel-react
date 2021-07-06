@@ -3,15 +3,21 @@ import Checkbox from '../../lib/Checkbox/Checkbox';
 import Button from '../../lib/Button/Button';
 import { ICON_V_ARROW } from '../../lib/Icons/Icons';
 
-export default function TableHeader (props) {       
+export default function TableHeader (props) {  
+    const cellStyle = {
+        flexDirection: "row-reverse", 
+        justifyContent: "flex-end", 
+        color: "var(--control-back-color)",
+    };
+    
     return (
         <div className={style._}>
             <Checkbox onClick={props.onAllCheckClick}/>
             {props.columns.map (
-                ({ id, label, flex, name}) => (
-                    <Button key={id} label={label} onClick={props.onHeaderClick(name)} 
-                            icon={(name === props.sort ? ICON_V_ARROW : "#")} 
-                            style={{style: {flexDirection:"row-reverse", justifyContent: "flex-end", flex, marginRight: "0.5rem", color: "var(--control-back-color)"}}}/>
+                ({ id, field, label, style: { flex, marginRight }}) => (
+                    <Button key={id} label={label} onClick={props.onHeaderClick(field)} 
+                            icon={(field === props.sort ? ICON_V_ARROW : "#")} 
+                            style={{...cellStyle, flex, marginRight}}/>
                 )
             )}
         </div>

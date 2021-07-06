@@ -22,7 +22,7 @@ function Range (props) {
                     pattern={props.startPattern ?? props.pattern} 
                     onSubmit={handlerValueSubmit}
                     onClear={handlerValueClear}
-                    style={{style: {width: "10rem"}}}/>
+                    style={{width: "10rem"}}/>
                 <Input 
                     field="to"
                     value={values["to"] ?? props.endValue}
@@ -31,7 +31,7 @@ function Range (props) {
                     pattern={props.endPattern ?? props.pattern} 
                     onSubmit={handlerValueSubmit} 
                     onClear={handlerValueClear}
-                    style={{style: {width: "10rem"}}}/>
+                    style={{width: "10rem"}}/>
             </div>
         </div>
     );

@@ -31,15 +31,15 @@ function Table () {
                     })}
                 </div>
                 <div className={style.footer}>
-                    <Cell label={`Выбрано записей: ${countSelected}`} style={{style: {flex: "1", marginLeft: "0.5rem"}}} />
-                    <Button icon={ICON_SUN}/>
+                    <Cell label={`Выбрано записей: ${countSelected}`} style={{flex: "1", marginLeft: "0.5rem"}} />
+                    <Button icon={ICON_SUN} style={{color: "#F53152"}}/>
                     <Button icon={ICON_MOON}/>
-                    <Button icon={ICON_CHECKMARK}/>
+                    <Button icon={ICON_CHECKMARK} style={{color: "#0FB864"}}/>
                     <Button icon={ICON_ABORT}/>
                     <Button icon={ICON_BIN}/>
                     <Button icon={ICON_FILTER}/>
                     <Button icon={ICON_DOT}/>
-                    <Button icon={ICON_LOCKED}/>
+                    <Button icon={ICON_LOCKED} style={{color: "black"}}/>
                     <Button icon={ICON_PENCIL}/>
                     <Button icon={ICON_REFRESH}/>
                     <Button icon={ICON_SEARCH}/>

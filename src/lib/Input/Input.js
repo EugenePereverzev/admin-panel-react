@@ -40,7 +40,7 @@ class Input extends Component {
         });
 
         return (
-            <div className={classString} {...this.props.style}>
+            <div className={classString} style={this.props.style}>
                 {this.props.children}
                 {!!this.props.label && <div className={style.label}>{this.props.label}</div>}
                 <input 

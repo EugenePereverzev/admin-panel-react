@@ -1,9 +1,9 @@
-import './Header.css';
+import style from './Header.module.css';
 
 export default function Header (props) {
     return (
-        <div className="header">
-            <div className="header-title">{props.title}</div>
+        <div className={style._} style={props.style}>
+            <div className={style.title}>{props.title}</div>
             {props.children}
         </div>
     )

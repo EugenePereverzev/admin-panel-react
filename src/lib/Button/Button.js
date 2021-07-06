@@ -10,7 +10,7 @@ function Button (props) {
     });
 
     return (
-        <div className={classString} onClick={!props.disabled ? props.onClick : undefined} {...props.style}>
+        <div className={classString} onClick={!props.disabled ? props.onClick : undefined} style={props.style}>
             {!!props.icon && <svg className={style.icon}><use href={props.icon}/></svg>}
             {!!props.label && <div className={style.label}>{props.label}</div>}
         </div>
