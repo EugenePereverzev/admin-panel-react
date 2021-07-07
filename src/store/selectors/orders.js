@@ -30,7 +30,20 @@ export const getFilteredOrders = createSelector (
     (orders, filter) => {
 //        console.log (`filtered selector: orders: ${orders.length}\tfilter: ${filter.isActive}`);
         if (filter.isActive) {
-            return orders.filter (({ id }) => true);
+            return orders.filter (({ id }) => {
+                const order = getFullOrderData(id);
+                return !filter.isActive || 
+                    (
+                        (!filter["idBayer"] || order.id.startsWith(filter["idBayer"]) || order.bayer.includes(filter["idBayer"])) 
+                    &&
+                        (!filter["date"] || (
+                                                (!filter["date"].from || (filter["date"].from <= order.date)) 
+                                            && 
+                                                (!filter["date"].to || (filter["date"].to >= order.date))
+                                            )
+                        )
+                    );
+            });
         } else {
             return orders;
         }

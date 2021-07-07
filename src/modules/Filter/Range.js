@@ -22,6 +22,8 @@ function Range (props) {
                     pattern={props.startPattern ?? props.pattern} 
                     onSubmit={handlerValueSubmit}
                     onClear={handlerValueClear}
+                    convertIn={props.convertIn}
+                    convertOut={props.convertOut}
                     style={{width: "10rem"}}/>
                 <Input 
                     field="to"
@@ -31,6 +33,8 @@ function Range (props) {
                     pattern={props.endPattern ?? props.pattern} 
                     onSubmit={handlerValueSubmit} 
                     onClear={handlerValueClear}
+                    convertIn={props.convertIn}
+                    convertOut={props.convertOut}
                     style={{width: "10rem"}}/>
             </div>
         </div>

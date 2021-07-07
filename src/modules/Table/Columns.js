@@ -42,7 +42,7 @@ export const defColumns = [
         label: "Статус",
         format: (value) => value,
         style: {
-            flex: "2",
+            flex: "3",
             justifyContent: "flex-start",
             },
         valueStyle: (value) => valueStyles[value],   
@@ -72,7 +72,7 @@ export const defColumns = [
         label: "ФИО покупателя",
         format: (value) => value,
         style: {
-            flex: "9",
+            flex: "7",
             justifyContent: "flex-start",
             }
     }
