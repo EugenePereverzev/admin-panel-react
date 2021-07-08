@@ -36,8 +36,8 @@ class Input extends Component {
     handlerOnSubmit = (value) => {
         if (this.props.onSubmit) {
             const outValue = this.handlerConvertOut (value);
-            this.props.onSubmit ({ [this.props.field]: outValue });
             this.props.convertIn && this.setState ({ value: this.handlerConvertIn(outValue) });
+            this.props.onSubmit ({ [this.props.field]: outValue });
         }
     };
 
@@ -48,9 +48,14 @@ class Input extends Component {
         }
     };
 
-    handlerOnBlur = () => {
-        if ((this.props.value ?? "") !== (this.state.value ?? "")) {
-            this.handlerOnSubmit (this.state.value);
+    handlerOnBlur = (value) => {
+        if ((this.props.value ?? "") !== (value ?? "")) {
+            if (this.props.onBlur) {
+                    const outValue = this.handlerConvertOut (value);
+                    this.props.convertIn && this.setState ({ value: this.handlerConvertIn(outValue) });
+                    this.props.onBlur ({ [this.props.field]: outValue })
+            }
+            else this.handlerOnSubmit (value);
         }
     };
   
@@ -71,7 +76,7 @@ class Input extends Component {
                     value={this.state.value} 
                     onChange={this.handlerOnChange} 
                     onKeyUp={this.handlerOnKeyUp}
-                    onBlur={this.handlerOnBlur}
+                    onBlur={() => this.handlerOnBlur(this.state.value)}
                     placeholder={this.props.placeHolder} 
                     pattern={this.props.pattern}/>
                 {(this.props.locked && <Button icon={ICON_LOCKED}/>) ||

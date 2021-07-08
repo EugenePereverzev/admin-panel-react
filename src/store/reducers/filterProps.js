@@ -2,6 +2,7 @@ export const ACT_FILTER_TOGGLE = 'FILTER_TOGGLE';
 export const ACT_FILTER_APPLY = 'FILTER_APPLY';
 export const ACT_FILTER_CLEAR = 'FILTER_CLEAR';
 export const ACT_FILTER_SET_VALUE = 'FILTER_SET_VALUE';
+export const ACT_FILTER_SET_WAPPLY = 'FILTER_SET_WAPPLY';
 export const ACT_FILTER_CLEAR_VALUE = 'FILTER_CLEAR_VALUE';
 
 const initialState = () => {
@@ -40,7 +41,15 @@ export const filterProps = (state = initialState(), { type, payload }) => {
                 isUpdate: true,
             };  
 
-        case ACT_FILTER_CLEAR_VALUE:
+            case ACT_FILTER_SET_WAPPLY:
+                return {
+                    ...state,
+                    ...payload,
+                    isActive: true,
+                    isUpdate: false,
+                    };  
+
+                case ACT_FILTER_CLEAR_VALUE:
             const { [payload.field]: cleared, ...newState} = state;
             return {
                 ...newState,

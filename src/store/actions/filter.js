@@ -1,4 +1,4 @@
-import { ACT_FILTER_TOGGLE, ACT_FILTER_CLEAR, ACT_FILTER_SET_VALUE, ACT_FILTER_CLEAR_VALUE, ACT_FILTER_APPLY } from '../reducers/filterProps';
+import { ACT_FILTER_TOGGLE, ACT_FILTER_CLEAR, ACT_FILTER_SET_VALUE, ACT_FILTER_CLEAR_VALUE, ACT_FILTER_APPLY, ACT_FILTER_SET_WAPPLY } from '../reducers/filterProps';
 
 export const actionFilterToggle = () => ({
     type: ACT_FILTER_TOGGLE,
@@ -6,6 +6,11 @@ export const actionFilterToggle = () => ({
 
 export const actionFilterSetValue = (value) => ({
     type: ACT_FILTER_SET_VALUE,
+    payload: value
+});
+
+export const actionFilterSetWApply = (value) => ({
+    type: ACT_FILTER_SET_WAPPLY,
     payload: value
 });
 

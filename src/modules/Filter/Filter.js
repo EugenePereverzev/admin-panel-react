@@ -7,7 +7,7 @@ import Range from './Range';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterExpanded, getFilterActivated, getFilter } from '../../store/selectors/filter';
-import { actionFilterToggle, actionFilterSetValue, actionFilterApply, actionFilterClear } from '../../store/actions/filter';
+import { actionFilterToggle, actionFilterSetValue, actionFilterApply, actionFilterClear, actionFilterSetWApply } from '../../store/actions/filter';
 
 const LOCAL_DATE_FORMAT = "dd.mm.yyyy";
 
@@ -39,6 +39,7 @@ function Filter () {
     const strToDate = (value) => ((value !== "") && strToDateFormat (value, LOCAL_DATE_FORMAT)) || undefined;
     const dateToStr = (value) => (value && dateToStrFormat (value, LOCAL_DATE_FORMAT)) || "";
     const handleSetValue = (value) => dispatch (actionFilterSetValue (value)); 
+    const handleSetWApply = (value) => dispatch (actionFilterSetWApply (value)); 
 
     const filterDetail = filterExpanded && (
         <FilterDetail>
@@ -70,10 +71,11 @@ function Filter () {
                     field="idBayer" 
                     value={filter["idBayer"]}
                     placeHolder="Номер заказа или ФИО" 
-                    onSubmit={handleSetValue} 
+                    onSubmit={handleSetWApply} 
+                    onBlur={handleSetValue}
                     style={{width: "15rem"}}
                 >
-                    <Button icon={ICON_SEARCH}/>
+                    <Button icon={ICON_SEARCH} onClick={() => dispatch (actionFilterApply ())}/>
                 </Input>
                 <Button 
                     icon={ICON_FILTER} 
