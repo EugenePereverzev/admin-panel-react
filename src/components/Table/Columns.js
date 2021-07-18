@@ -4,18 +4,18 @@ import { ICON_ABORT, ICON_CHECKMARK, ICON_DOT} from '../../lib/Icons/Icons';
 
 const childValueProps = {
     [ORDER_STATUS_CALC]: {icon: ICON_DOT, style: {color: "#459DF5"}},
-    [ORDER_STATUS_CANCEL]: {icon: ICON_ABORT, style: {color: "#00000080"}}, //"#F53152"
+    [ORDER_STATUS_CANCEL]: {icon: ICON_ABORT, style: {color: "var(--main-color-50)"}}, //"#F53152"
     [ORDER_STATUS_DELAY]: {icon: ICON_DOT, style: {color: "#FF8C56"}},
     [ORDER_STATUS_DONE]: {icon: ICON_CHECKMARK, style: {color: "#0FB864"}},
     [ORDER_STATUS_NEW]: {icon: ICON_DOT, style: {color: "#FF8C56"}},
 }
 
 const valueStyles = {
-    [ORDER_STATUS_CALC]: {color: "#000000"},
-    [ORDER_STATUS_CANCEL]: {color: "#00000080"},
-    [ORDER_STATUS_DELAY]: {color: "#000000"},
+    [ORDER_STATUS_CALC]: {color: "var(--main-color)"},
+    [ORDER_STATUS_CANCEL]: {color: "var(--main-color-50)"},
+    [ORDER_STATUS_DELAY]: {color: "var(--main-color)"},
     [ORDER_STATUS_DONE]: {color: "#0FB864"},
-    [ORDER_STATUS_NEW]: {color: "#000000"},
+    [ORDER_STATUS_NEW]: {color: "var(--main-color)"},
 }
 
 export const defColumns = [

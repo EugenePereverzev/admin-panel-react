@@ -9,10 +9,11 @@ import { store } from '../../store/store'
 
 
 function App() {
+  
   return (
     <div className="App">
       <Header title="Список заказов">
-        <ThemeMenu />
+        <ThemeMenu html={document.querySelector('html')}/>
       </Header>  
       <Provider store={store}>
         <Filter />

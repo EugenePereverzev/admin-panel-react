@@ -4,6 +4,7 @@ import Input from '../../lib/Input/Input';
 import FilterDetail from './FilterDetail';
 import { ICON_FILTER, ICON_REFRESH, ICON_SEARCH } from '../../lib/Icons/Icons';
 import Range from './Range';
+import { strToDateFormat, dateToStrFormat } from '../../modules/converters';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterExpanded, getFilterActivated, getFilter } from '../../store/selectors/filter';
@@ -11,24 +12,6 @@ import { actionFilterToggle, actionFilterSetValue, actionFilterApply, actionFilt
 
 const LOCAL_DATE_FORMAT = "dd.mm.yyyy";
 
-const strToDateFormat = (value, format) => {
-    const values = value.replace(/[^0-9A-Za-z]/g,'|').split('|');
-    const formats = format.toLowerCase().replace(/[^0-9a-z]/g,'|').split('|');
-    const now = new Date();
-    const nowParts = [now.getFullYear(), now.getMonth() + 1, now.getDate(), 0, 0, 0];
-    const dateParts = ["yyyy", "mm", "dd", "hh", "ii", "ss"];
-    const valueParts = dateParts.map ((part, index) => (values[formats.indexOf(part)] ?? nowParts[index]) - (part === "mm"));
-    return new Date (...valueParts);
-};
-
-const dateToStrFormat = (value, format) => {
-    const values = [value.getFullYear(), value.getMonth() + 1, value.getDate(), value.getHours(), value.getMinutes(), value.getSeconds()];
-    const formats = format.toLowerCase().replace(/[^0-9a-z]/g,'|').split('|');
-    const delimeters = format.toLowerCase().replace(/[0-9a-z]/g,'');
-    const dateParts = ["yyyy", "mm", "dd", "hh", "ii", "ss"];
-    const valueParts = formats.map ((part, index) => (values[dateParts.indexOf(part)] ?? part) + (delimeters[index] ?? ""));
-    return valueParts.join("");
-};
 
 function Filter () {
     const filterExpanded = useSelector (getFilterExpanded);
@@ -69,7 +52,7 @@ function Filter () {
                 label="Применить" 
                 onClick={() => dispatch (actionFilterApply ())}
                 disabled={!filter.isUpdate} 
-                style={{height: "2rem", border: "solid 1px currentColor"}}
+                style={{height: "2rem"}}
             />
         </FilterDetail>
     );

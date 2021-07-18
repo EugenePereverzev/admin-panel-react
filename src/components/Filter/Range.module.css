@@ -5,6 +5,7 @@
 
 .label {
     font: var(--control-font);
+    color: var(--main-color);
     margin-bottom: 0.5rem;
 }
 

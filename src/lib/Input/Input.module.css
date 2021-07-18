@@ -6,6 +6,7 @@
     border: solid 1px var(--control-color);
     height: 2rem;
     background: var(--main-background);
+    color: var(--main-color);
     min-width: 0;
 }
 
@@ -19,6 +20,8 @@
     font: var(--normal-font);
     border: none;
     min-width: 0;
+    background: var(--main-background);
+    color: var(--main-color);
 }
 
 .field:focus {
@@ -30,6 +33,7 @@
 }
 
 .field::placeholder {
-    color: var(--control-color);
+    color: var(--secondary-color);
+    background: var(--main-background);
 }
 

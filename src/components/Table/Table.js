@@ -25,10 +25,12 @@ function Table () {
             <div className={style._}>
                 <TableHeader columns={defColumns} sort={sortMode} onHeaderClick={handlerOnHeaderClick}/>
                 <div className={style.body}>
-                    {viewOrder.map(({id, isSelected}, index) => {
-                        return <TableRow key={index} columns={defColumns} values={getFullOrderData(id)} selected={isSelected} 
-                        onRowCheckClick={handlerOnRowCheckClick(id)}/>;
-                    })}
+                    <div className={style.rows_container}>
+                        {viewOrder.map(({id, isSelected}, index) => {
+                            return <TableRow key={index} columns={defColumns} values={getFullOrderData(id)} selected={isSelected} 
+                            onRowCheckClick={handlerOnRowCheckClick(id)}/>;
+                        })}
+                    </div>
                 </div>
                 <div className={style.footer}>
                     <Cell label={`Выбрано записей: ${countSelected}`} style={{flex: "1", marginLeft: "0.5rem"}} />
