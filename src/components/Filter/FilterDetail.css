@@ -1,7 +1,0 @@
-.filter-detail {
-    display: flex;
-    align-items: flex-end;
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-background);
-    border-radius: 0.5rem;
-}

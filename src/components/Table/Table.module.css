@@ -1,0 +1,27 @@
+._ {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font: var(--control-font);
+    letter-spacing: 0;
+    margin: 0 0.5rem;
+}
+
+.body {
+    flex: 1;
+    background: var(--main-background);
+    color: var(--main-color);
+    overflow: auto;
+}
+
+.rows_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background: var(--secondary-background);
+    color: var(--main-color);
+    display: flex;
+    justify-content: flex-end;
+}

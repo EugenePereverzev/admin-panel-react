@@ -1,0 +1,39 @@
+._ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.25rem;
+    border: solid 1px var(--control-color);
+    height: 2rem;
+    background: var(--main-background);
+    color: var(--main-color);
+    min-width: 0;
+}
+
+.label {
+    margin: 0 0.25rem;
+    flex-shrink: 0;
+}
+
+.field {
+    flex-grow: 1;
+    font: var(--normal-font);
+    border: none;
+    min-width: 0;
+    background: var(--main-background);
+    color: var(--main-color);
+}
+
+.field:focus {
+    outline: none;
+}
+
+.field:invalid {
+    color: red;
+}
+
+.field::placeholder {
+    color: var(--secondary-color);
+    background: var(--main-background);
+}
+

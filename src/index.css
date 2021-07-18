@@ -1,8 +1,9 @@
-:root {
+html {
   --main-background: white;
-  --main-color: black;
+  --main-color: #000000;
+  --main-color-50: #00000080;
   --secondary-background: #EBF0F5;
-  --secondary-color: #a6a9ad;
+  --secondary-color: #BAD8F5;
   --control-color: #459DF5;
   --control-back-color: white;
   --control-lock-color: #BAD8F5;
@@ -12,15 +13,23 @@
   --normal-font: normal 1rem/1.5rem Ubuntu;
   --x-small-font: x-small Ubuntu;
   --control-font: normal 400 0.85rem/1rem Ubuntu;
-}
 
-html {
   background-color: var(--main-background);
   box-sizing: border-box;
   height: 100%;
   font-family: "Ubuntu", sans-serif; 
   letter-spacing: -0.2px;
 }
+
+html.dark {
+  --main-background: #2B2D33;
+  --main-color: #BCC4CC;
+  --main-color-50: #BCC4CC80;
+  --secondary-background: #1F2629;
+  --secondary-color: #454E52;
+  --control-back-color: #2B2D33;
+}
+
 
 body, #root {
   height: 100%;

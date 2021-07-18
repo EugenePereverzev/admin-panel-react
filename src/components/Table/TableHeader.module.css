@@ -1,0 +1,9 @@
+._ {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    background: var(--control-color);
+    color: var(--control-back-color);
+}
+
