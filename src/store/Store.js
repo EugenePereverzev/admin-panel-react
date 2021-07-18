@@ -4,6 +4,8 @@ import { orderList } from './reducers/orderList';
 //import { goodList } from './reducers/goodList';
 import { filterProps } from './reducers/filterProps';
 import { sortMode } from './reducers/sortMode';
+import { middleOrders } from './middlewares/orders';
+import { applyMiddleware } from '@reduxjs/toolkit';
 
 const storeReducers = combineReducers ({
     orderList,
@@ -13,4 +15,4 @@ const storeReducers = combineReducers ({
     sortMode,
 });
 
-export const store = createStore (storeReducers); 
+export const store = createStore (storeReducers, applyMiddleware(middleOrders)); 

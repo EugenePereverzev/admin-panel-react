@@ -55,6 +55,16 @@ function Filter () {
                 pattern="(((0?[1-9]|[1,2][0-9])\.(0?[1-9]|1[0-2]))|(30\.(0?[1,3-9]|1[0-2]))|(31\.(0?[1,3,5,7,8]|1[0,2])))\.([0-9]{2}|[0-9]{4})"
                 onSubmit={handleSetValue}
             />
+            <Range 
+                field="summa" 
+                values={filter["summa"]}
+                label="Сумма заказа" 
+                startLabel="от" 
+                endLabel="до" 
+                placeHolder="0,00" 
+                pattern="[0-9]*,?[0-9]{0,2}"
+                onSubmit={handleSetValue}
+            />
             <Button 
                 label="Применить" 
                 onClick={() => dispatch (actionFilterApply ())}

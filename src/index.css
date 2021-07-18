@@ -1,4 +1,4 @@
-:root {
+html {
   --main-background: white;
   --main-color: black;
   --secondary-background: #EBF0F5;
@@ -12,15 +12,21 @@
   --normal-font: normal 1rem/1.5rem Ubuntu;
   --x-small-font: x-small Ubuntu;
   --control-font: normal 400 0.85rem/1rem Ubuntu;
-}
 
-html {
   background-color: var(--main-background);
   box-sizing: border-box;
   height: 100%;
   font-family: "Ubuntu", sans-serif; 
   letter-spacing: -0.2px;
 }
+
+html.dark {
+  --main-background: #2B2D33;
+  --main-color: #BCC4CC;
+  --secondary-background: #EBF0F5;
+  --secondary-color: #a6a9ad;
+}
+
 
 body, #root {
   height: 100%;

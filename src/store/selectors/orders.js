@@ -5,10 +5,11 @@ const getOrders = (state) => {
 //    console.log (`get order selector: orders:`, state.orderList);
     return state.orderList;
 };
-const getFilter = (state) => {
-//    console.log (`get filter selector: filter:`, state.filterProps);
-    return state.filterProps;
-};
+
+// const getFilter = (state) => {
+// //    console.log (`get filter selector: filter:`, state.filterProps);
+//     return state.filterProps;
+// };
 
 const compareOrder = (sort) => (a, b) => {
     const { [sort]: valueA } = getFullOrderData(a.id);
@@ -25,33 +26,34 @@ export const getSort = (state) => {
     return state.sortMode;
 };
 
-export const getFilteredOrders = createSelector (
-    [getOrders, getFilter],
-    (orders, filter) => {
-//        console.log (`filtered selector: orders: ${orders.length}\tfilter: ${filter.isActive}`);
-        if (filter.isActive) {
-            return orders.filter (({ id }) => {
-                const order = getFullOrderData(id);
-                return !filter.isActive || 
-                    (
-                        (!filter["idBayer"] || order.id.startsWith(filter["idBayer"]) || order.bayer.includes(filter["idBayer"])) 
-                    &&
-                        (!filter["date"] || (
-                                                (!filter["date"].from || (filter["date"].from <= order.date)) 
-                                            && 
-                                                (!filter["date"].to || (filter["date"].to >= order.date))
-                                            )
-                        )
-                    );
-            });
-        } else {
-            return orders;
-        }
-    }
-);
+// export const getFilteredOrders = createSelector (
+//     [getOrders, getFilter],
+//     (orders, filter) => {
+// //        console.log (`filtered selector: orders: ${orders.length}\tfilter: ${filter.isActive}`);
+//         if (filter.isActive) {
+//             return orders.filter (({ id }) => {
+//                 const order = getFullOrderData(id);
+//                 return !filter.isActive || 
+//                     (
+//                         (!filter["idBayer"] || order.id.startsWith(filter["idBayer"]) || order.bayer.includes(filter["idBayer"])) 
+//                     &&
+//                         (!filter["date"] || (
+//                                                 (!filter["date"].from || (filter["date"].from <= order.date)) 
+//                                             && 
+//                                                 (!filter["date"].to || (filter["date"].to >= order.date))
+//                                             )
+//                         )
+//                     );
+//             });
+//         } else {
+//             return orders;
+//         }
+//     }
+// );
 
 export const getSorteredOrders = createSelector (
-    [getFilteredOrders, getSort],
+//    [getFilteredOrders, getSort],
+    [getOrders, getSort],
     (orders, sort) => {
 //        console.log (`sorted selector: orders: ${orders.length}\tsort: ${sort}`);
         if (sort) {
